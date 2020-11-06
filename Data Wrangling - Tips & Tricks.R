@@ -222,7 +222,7 @@ table(collapse)
 #or just run the levels
 as.factor(collapse$ethnicity.new) %>% levels
 
-#I want to include anyone who identifies as asian in my asani group
+#I want to include anyone who identifies as asian in my asian group
 collapse <- survey %>% 
   mutate(ethnicity.new = if_else(grepl("Asian",
                                       as.character(ethnicity)), 
@@ -263,7 +263,7 @@ collapse3 <- survey %>%
                                   T ~ "Other")) %>% 
   select(ethnicity, ethnicity.new)
 
-#Anytime someone identifies in the his lantix group put in the same group
+#Anytime someone identifies in the his/lantix group put in the same group
 # use grep + case_when
 collapse3 <- survey %>% 
   mutate(ethnicity.new = case_when(grepl("Asian", ethnicity) ~ "Asian",
